@@ -1,23 +1,29 @@
-const hours = document.getElementById("hours");
-const minutes = document.getElementById("minutes");
-const days = document.getElementById("days");
-const numDays = document.getElementById("num-days");
-const months = document.getElementById("months");
+const timeWrapper = document.querySelector(".time-wrapper");
+const dateWrapper = document.querySelector(".date-wrapper");
 
 const display = () => {
-    // Current date
-    const date = new Date();
+  // Current date
+  const today = new Date();
 
-    // Time
-    hours.textContent = date.getHours();
-    minutes.textContent =
-    date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+  // Time
+  const hours = today.getHours();
+  const minutes = today.getMinutes() < 10 ? "0" + today.getMinutes() : today.getMinutes();
+  //
+  timeWrapper.innerHTML = `<span>${hours}:${minutes}</span>`;
 
-    // Date
-    days.textContent = date.toLocaleString("default", { weekday: "long" });
-    numDays.textContent = date.getDate();
-    months.textContent = date.toLocaleString("default", { month: "long" });
+  // today
+  const days = today.toLocaleString("default", { weekday: "long" });
+  const date = today.getDate();
+  const months = today.toLocaleString("default", { month: "long" });
+  //
+  dateWrapper.innerHTML = `<span>${days}</span>
+  <span class="num-days">${date}</span>
+  <span>${months}</span>`;
 };
 
 //
-window.addEventListener("DOMContentLoaded", display);
+window.addEventListener("DOMContentLoaded", () => {
+  setInterval(() => {
+    display();
+  }, 1000);
+});

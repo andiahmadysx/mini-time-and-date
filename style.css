@@ -55,7 +55,7 @@ body {
   font-size: 12px;
 }
 
-#num-days{
-  font-size: 32px !important;
+.num-days{
+  font-size: 32px;
   font-weight: 500;
 }
