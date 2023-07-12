@@ -11,7 +11,7 @@ const display = () => {
   //
   timeWrapper.innerHTML = `<span>${hours}:${minutes}</span>`;
 
-  // today
+  // Date
   const days = today.toLocaleString("default", { weekday: "long" });
   const date = today.getDate();
   const months = today.toLocaleString("default", { month: "long" });
